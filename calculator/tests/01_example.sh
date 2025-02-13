@@ -29,3 +29,23 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
+
+# additional tests for CI tests part
+
+if [[ $($CALCULATOR 5 - 2) -ne 3 ]]; then
+  echo 'ERROR! A valid run of the calculator (5 - 2) failed to produce 3 as an output!'
+  exit 1
+fi
+
+if [[ $($CALCULATOR 3 '*' 4) -ne 12 ]]; then
+  echo 'ERROR! A valid run of the calculator (3 * 4) failed to produce 12 as an output!'
+  exit 1
+fi
+
+if [[ $($CALCULATOR 8 / 2) -ne 4 ]]; then
+  echo 'ERROR! A valid run of the calculator (8 / 2) failed to produce 4 as an output!'
+  exit 1
+fi
+
+echo "All tests passed!"
+exit 0
